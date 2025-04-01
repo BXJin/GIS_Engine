@@ -4,9 +4,11 @@ from samples.LayerOrder import LayerOrder
 from samples.LoadLayer import LoadLayer
 from samples.AdvancedDigitizingWidget import AdvancedDigitizingWidget
 from samples.EditToolBar import EditToolBar
+from components.main_window import MainWindow 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = EditToolBar()
+    #window = AdvancedDigitizingWidget()
+    window = MainWindow()
     window.show()
     sys.exit(app.exec_())
