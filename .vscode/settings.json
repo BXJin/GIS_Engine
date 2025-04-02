@@ -1,4 +1,14 @@
 {
 	"python.envFile": "${workspaceFolder}/.env",
-	"python.defaultInterpreterPath": "C:/OSGeo4W/apps/Python312/python.exe"
+	"python.defaultInterpreterPath": "C:/OSGeo4W/apps/Python312/python.exe",
+	"editor.defaultFormatter": "ms-python.black-formatter",
+	"editor.formatOnSave": true,
+
+ 	"python.analysis.typeCheckingMode": "basic",
+
+	"python.linting.enabled": true,
+	"python.linting.pylintEnabled": true,
+	"python.linting.pylintArgs": [
+		"--enable=E1121,E1136,E0602"
+	]
 }

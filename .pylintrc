@@ -1,0 +1,6 @@
+[MASTER]
+ignore=venv
+ignored-modules=qgis,qgis.core,qgis.gui
+disable=C0112
+disable=C0114
+disable=C0116
