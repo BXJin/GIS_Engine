@@ -4,6 +4,7 @@ from samples.LayerOrder import LayerOrder
 from samples.LoadLayer import LoadLayer
 from samples.AdvancedDigitizingWidget import AdvancedDigitizingWidget
 from samples.EditToolBar import EditToolBar
+from samples.VectorLayerProperties import VectorLayerProperties
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -40,6 +41,10 @@ class MainWindow(QMainWindow):
         btn_edit_toolbar.clicked.connect(lambda: self.stacked_widget.setCurrentIndex(3))
         sidebar_layout.addWidget(btn_edit_toolbar)
 
+        btn_vector_layer_properties = QPushButton("레이어 속성정보보기", self)
+        btn_vector_layer_properties.clicked.connect(lambda: self.vector_layer_properties.show())
+        sidebar_layout.addWidget(btn_vector_layer_properties)
+
         # 나머지 공간을 채우는 빈 위젯 추가
         spacer = QWidget()
         sidebar_layout.addWidget(spacer)
@@ -53,11 +58,13 @@ class MainWindow(QMainWindow):
         self.load_layer = LoadLayer()
         self.digitizing = AdvancedDigitizingWidget()
         self.edit_toolbar = EditToolBar()
+        self.vector_layer_properties = VectorLayerProperties()
         
         self.stacked_widget.addWidget(self.layer_order)
         self.stacked_widget.addWidget(self.load_layer)
         self.stacked_widget.addWidget(self.digitizing)
         self.stacked_widget.addWidget(self.edit_toolbar)  
+        # self.stacked_widget.addWidget(self.vector_layer_properties)  
         
         # 레이아웃에 위젯 추가
         main_layout.addWidget(sidebar)
