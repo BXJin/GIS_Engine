@@ -9,23 +9,18 @@ from qgis.gui import (
     ,QgsMapToolCapture, QgsVectorLayerProperties, QgsMessageBar
 )
 from qgis.PyQt.QtCore import Qt
+from geon.layer import getLayerByName
 
 class VectorLayerProperties(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        layer = list(
-            filter(
-                lambda l: isinstance(l, QgsVectorLayer) and l.name() == "벡터 레이어", 
-                QgsProject.instance().mapLayers().values()
-            )
-        )
+        layer = getLayerByName("벡터 레이어")
 
         self.dlg = QgsVectorLayerProperties(canvas = QgsMapCanvas(),
-                                            lyr = layer[0], 
+                                            lyr = layer, 
                                             messageBar=QgsMessageBar(), 
                                             parent=self)
-        # self.dlg.show()
 
     def show(self):
         self.dlg.show()
